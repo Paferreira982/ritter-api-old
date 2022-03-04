@@ -1,4 +1,4 @@
-const Sequelize = requeire("sequelize");
+const Sequelize = require("sequelize");
 const sequelize = new Sequelize("ritter", "root", "admin123", {
     dialect: "mariadb",
     host: "localhost",
