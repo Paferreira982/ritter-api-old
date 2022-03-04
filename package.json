@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Paferreira982/ritter-api#readme",
   "dependencies": {
+    "mariadb": "^3.0.0",
     "sequelize": "^6.17.0"
   }
 }
