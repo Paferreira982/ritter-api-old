@@ -1,5 +1,6 @@
 const Sequelize = require("sequelize");
-const database = require("../database")
+const database = require("../database");
+const Role = require("./role");
 
 const User = database.define("user", {
     id: {
@@ -35,5 +36,8 @@ const User = database.define("user", {
         unique: true
     }
 });
+
+User.belongsToMany(Role, { through: 'users_roles' });
+Role.belongsToMany(User, { through: 'users_roles' })
 
 module.exports = User;

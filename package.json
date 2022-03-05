@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/Paferreira982/ritter-api#readme",
   "dependencies": {
+    "bcrypt": "^5.0.1",
+    "express": "^4.17.3",
     "mariadb": "^3.0.0",
     "sequelize": "^6.17.0"
   }

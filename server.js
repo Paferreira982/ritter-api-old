@@ -1,5 +1,4 @@
 (async () => {
-    const database = require("./database/database");
-    const User = require("./database/model/user");
-    await database.sync();
+    const { initDB } = require("./server/infra/config");
+    await initDB();
 })();
