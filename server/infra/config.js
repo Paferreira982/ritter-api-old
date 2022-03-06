@@ -1,4 +1,3 @@
-const security = require("../security/security")
 const database = require("../../database/database");
 const userService = require("../service/userService");
 const roleService = require("../service/roleService");
@@ -26,7 +25,7 @@ async function getDefaultUser() {
     return { 
         name: "Admin",
         username: "admin",
-        password: security.encryptPassword("admin123"),
+        password: "admin123",
         email: "contato@paferreira.com",
         telephone: "21992540982"
     }
