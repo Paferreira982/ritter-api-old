@@ -26,13 +26,8 @@ const User = database.define("user", {
         type: Sequelize.STRING,
         allowNull: false,
         set(password) {
-          this.setDataValue('password', bcrypt.hashSync(password, this.username));
+            this.setDataValue('password', bcrypt.hashSync(password, bcrypt.genSaltSync(8)));
         }
-    },
-    
-    password: {
-        type: Sequelize.STRING,
-        allowNull: false
     },
 
     email: {
