@@ -1,4 +1,4 @@
-const security = require("../security/encrypt")
+const security = require("../security/security")
 const database = require("../../database/database");
 const userService = require("../service/userService");
 const roleService = require("../service/roleService");
