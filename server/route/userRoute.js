@@ -7,19 +7,19 @@ router.get("/", async function (req, res) {
     res.json(await service.findAll());
 });
 
-router.get("/user/:id", async function (req, res) {
+router.get("/:id", async function (req, res) {
     res.json(await service.findById(req.params.id));
 });
 
-router.post("/user", async function (req, res) {
+router.post("/", async function (req, res) {
     res.json(await service.save(req.body));
 });
 
-router.put("/user", async function (req, res) {
+router.put("/", async function (req, res) {
     res.json(await service.update(req.body));
 });
 
-router.delete("/user/:id", async function (req, res) {
+router.delete("/:id", async function (req, res) {
     res.json(await service.removeById(req.params.id));
 });
 
