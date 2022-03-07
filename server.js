@@ -1,6 +1,7 @@
 // INICIA CONFIGURAÇÕES NA BASE DE DADOS
 (async () => {
-    const { initDB } = require("./server/infra/config");
+    const { initDB, generateDatabase } = require("./server/infra/config");
+    await generateDatabase();
     await initDB();
 })();
 
