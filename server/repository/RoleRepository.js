@@ -1,4 +1,4 @@
-const Role = require("../../database/model/role");
+const Role = require("../../database/model/Role");
 
 exports.findAll = function() {
     return Role.findAll();

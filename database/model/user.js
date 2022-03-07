@@ -1,6 +1,6 @@
 const Sequelize = require("sequelize");
-const database = require("../database");
-const Role = require("./role");
+const database = require("../Database");
+const Role = require("./Role");
 const bcrypt = require("bcrypt");
 
 const User = database.define("user", {

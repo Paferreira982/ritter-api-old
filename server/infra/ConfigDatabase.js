@@ -1,7 +1,7 @@
 const ENV = require("./ConfigEnviroment");
 
 exports.initDB = async function () {
-    const database = require("../../database/database");
+    const database = require("../../database/Database");
     const userService = require("../service/UserService");
     const roleService = require("../service/RoleService");
 

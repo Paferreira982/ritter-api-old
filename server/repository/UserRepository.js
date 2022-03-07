@@ -1,4 +1,4 @@
-const User = require("../../database/model/user");
+const User = require("../../database/model/User");
 const bcrypt = require("bcrypt");
 
 exports.save = function(user) {
