@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const service = require("../service/userService");
+const service = require("../service/UserService");
 
 router.get("/", async function (req, res) {
     res.json(await service.findAll());

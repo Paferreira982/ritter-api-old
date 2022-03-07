@@ -1,4 +1,4 @@
-const data = require("../data/roleData");
+const data = require("../repository/RoleRepository");
 
 exports.findAll = function() {
     return data.findAll();

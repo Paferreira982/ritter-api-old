@@ -1,4 +1,4 @@
-const data = require("../data/userData");
+const data = require("../repository/UserRepository");
 
 exports.save = function (user) {
     return data.save(user);

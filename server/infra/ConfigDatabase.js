@@ -1,7 +1,9 @@
+const ENV = require("./ConfigEnviroment");
+
 exports.initDB = async function () {
     const database = require("../../database/database");
-    const userService = require("../service/userService");
-    const roleService = require("../service/roleService");
+    const userService = require("../service/UserService");
+    const roleService = require("../service/RoleService");
 
     await database.sync();
     const roles = await roleService.findAll();
@@ -11,11 +13,11 @@ exports.initDB = async function () {
         await roleService.save({ name: "ROLE_USER" });
     }
 
-    const admin = await userService.findByUserName("admin");
+    const admin = await userService.findByUserName(ENV.USER_DEFAULT_NAME);
     if (admin === null) {
         const role = await roleService.findByName("ROLE_ADMIN");
         await userService.save(await getDefaultUser());
-        const user = await userService.findByUserName("admin");
+        const user = await userService.findByUserName(ENV.USER_DEFAULT_NAME);
         await user.setRoles([role]);
     }
 }
@@ -24,17 +26,16 @@ exports.generateDatabase = async function () {
     const mariadb = require('mariadb');
 
     const pool = mariadb.createPool({
-        host: 'localhost',
-        user:'root', 
-        password: 'admin123',
+        host: ENV.DB_URL,
+        user: ENV.DB_USER, 
+        password: ENV.DB_PASSWORD,
         connectionLimit: 5
     });
 
     let conn;
     try {
         conn = await pool.getConnection();
-        const response = await conn.query("CREATE DATABASE IF NOT EXISTS ritter");
-        console.log("REPOSTA: " + response);
+        await conn.query(`CREATE DATABASE IF NOT EXISTS ${ENV.DB_NAME}`);
     } catch (err) {
         throw err;
     } finally {
@@ -44,10 +45,10 @@ exports.generateDatabase = async function () {
 
 async function getDefaultUser() {
     return { 
-        name: "Admin",
-        username: "admin",
-        password: "admin123",
-        email: "contato@paferreira.com",
-        telephone: "21992540982"
+        name: ENV.USER_DEFAULT_NAME,
+        username: ENV.USER_DEFAULT_NAME,
+        password: ENV.USER_DEFAULT_PASSWORD,
+        email: ENV.USER_DEFAULT_EMAIL,
+        telephone: ENV.USER_DEFAULT_TEL
     }
 }
