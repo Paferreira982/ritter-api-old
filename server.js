@@ -1,8 +1,6 @@
 // INICIA CONFIGURAÇÕES NA BASE DE DADOS //
-(async () => {
-    const { initDB, generateDatabase } = require("./server/infra/ConfigDatabase");
-    await initDB();
-})();
+const { initDB } = require("./server/infra/ConfigDatabase");
+initDB();
 
 const express = require("express");
 const app = express();
