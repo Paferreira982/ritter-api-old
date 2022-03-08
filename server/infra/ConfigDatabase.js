@@ -1,6 +1,8 @@
 const ENV = require("./ConfigEnviroment");
 
 exports.initDB = async function () {
+    await generateDatabase();
+
     const database = require("../../database/Database");
     const userService = require("../service/UserService");
     const roleService = require("../service/RoleService");
@@ -22,7 +24,7 @@ exports.initDB = async function () {
     }
 }
 
-exports.generateDatabase = async function () {
+async function generateDatabase () {
     const mariadb = require('mariadb');
 
     const pool = mariadb.createPool({
