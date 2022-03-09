@@ -1,7 +1,7 @@
 const Sequelize = require("sequelize");
 const database = require("../Database");
 const Role = require("./Role");
-const bcrypt = require("bcrypt");
+const { hash } = require("../../server/security/Security")
 
 const User = database.define("user", {
     id: {
@@ -26,7 +26,7 @@ const User = database.define("user", {
         type: Sequelize.STRING,
         allowNull: false,
         set(password) {
-            this.setDataValue('password', bcrypt.hashSync(password, bcrypt.genSaltSync(8)));
+            this.setDataValue('password', hash(password));
         }
     },
 
