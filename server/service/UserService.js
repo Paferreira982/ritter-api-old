@@ -1,25 +1,25 @@
-const data = require("../repository/UserRepository");
+const repository = require("../repository/UserRepository");
 
 exports.save = function (user) {
-    return data.save(user);
+    return repository.save(user);
 }
 
 exports.update = function (user) {
-    return data.update(user);
+    return repository.update(user);
 }
 
 exports.removeById = function (id) {
-    return data.destroyById(id);
+    return repository.destroyById(id);
 }
 
 exports.findById = function (id) {
-    return data.findByPk(id);
+    return repository.findByPk(id);
 }
 
 exports.findAll = function () {
-    return data.findAll();
+    return repository.findAll();
 }
 
 exports.findByUserName = function (username) {
-    return data.findByUserName(username);
+    return repository.findByUserName(username);
 }

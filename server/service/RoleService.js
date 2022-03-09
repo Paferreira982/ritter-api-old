@@ -1,13 +1,13 @@
-const data = require("../repository/RoleRepository");
+const repository = require("../repository/RoleRepository");
 
 exports.findAll = function() {
-    return data.findAll();
+    return repository.findAll();
 }
 
 exports.save = function(role) {
-    return data.save(role);
+    return repository.save(role);
 }
 
 exports.findByName = function(name) {
-    return data.findByName(name);
+    return repository.findByName(name);
 }
