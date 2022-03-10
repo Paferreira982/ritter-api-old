@@ -13,3 +13,7 @@ exports.USER_DEFAULT_NAME = process.env.USER_DEFAULT_NAME || "admin";
 exports.USER_DEFAULT_PASSWORD = process.env.USER_DEFAULT_PASSWORD || "admin123";
 exports.USER_DEFAULT_EMAIL = process.env.USER_DEFAULT_EMAIL || "contato@paferreira.com";
 exports.USER_DEFAULT_TEL = process.env.USER_DEFAULT_TEL || "21992540982";
+
+// SECURITY //
+exports.JWT_SECRET = process.env.JWT_SECRET || "segredoRitter";
+exports.JWT_EXPIRE = process.env.JWT_EXPIRE || 600;

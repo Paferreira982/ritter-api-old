@@ -1,5 +1,4 @@
 const User = require("../../database/model/User");
-const bcrypt = require("bcrypt");
 
 exports.save = function(user) {
     return User.create(user);
